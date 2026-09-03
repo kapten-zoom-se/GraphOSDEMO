@@ -35,5 +35,7 @@ services:
       - products
       - users
       - reviews
+    environment:
+      APOLLO_ELV2_LICENSE: accept
     ports:
       - "4000:4000"
