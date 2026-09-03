@@ -5,7 +5,3 @@ sandbox:
   enabled: true
 homepage:
   enabled: false
-cors:
-  policies:
-    - origins:
-        - https://studio.apollographql.com
