@@ -1,0 +1,11 @@
+# Minimal local Apollo Router config for this demo.
+# Used only for the "pure local" workflow (no GraphOS account needed).
+supergraph:
+  listen: 0.0.0.0:4000
+sandbox:
+  enabled: true
+homepage:
+  enabled: false
+cors:
+  origins:
+    - https://studio.apollographql.com

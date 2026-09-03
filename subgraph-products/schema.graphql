@@ -1,0 +1,22 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.6", import: ["@key"])
+
+"""
+A product in the catalog. This subgraph OWNS the Product entity —
+it's the source of truth for these fields. Other subgraphs (like
+Reviews) can reference Product by its key and attach their own fields.
+"""
+type Product @key(fields: "id") {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  currency: String!
+  category: String!
+  inStock: Boolean!
+}
+
+type Query {
+  products: [Product!]!
+  product(id: ID!): Product
+}

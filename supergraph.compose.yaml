@@ -1,0 +1,14 @@
+federation_version: 2
+subgraphs:
+  products:
+    routing_url: http://products:4001/graphql
+    schema:
+      file: ./subgraph-products/schema.graphql
+  users:
+    routing_url: http://users:4002/graphql
+    schema:
+      file: ./subgraph-users/schema.graphql
+  reviews:
+    routing_url: http://reviews:4003/graphql
+    schema:
+      file: ./subgraph-reviews/schema.graphql

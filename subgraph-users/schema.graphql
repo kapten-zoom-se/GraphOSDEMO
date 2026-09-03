@@ -1,0 +1,21 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.6", import: ["@key"])
+
+"""
+A registered user. This subgraph OWNS the User entity. The Reviews
+subgraph will later extend this same type to attach a `reviews` field
+without needing to know anything about how users are stored here.
+"""
+type User @key(fields: "id") {
+  id: ID!
+  username: String!
+  name: String!
+  email: String!
+  memberSince: String!
+}
+
+type Query {
+  me: User
+  user(id: ID!): User
+  users: [User!]!
+}

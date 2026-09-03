@@ -1,0 +1,16 @@
+{
+  "name": "subgraph-users",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Users subgraph for the Apollo GraphOS federation demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.0",
+    "@apollo/subgraph": "^2.9.0",
+    "graphql": "^16.9.0",
+    "graphql-tag": "^2.12.6"
+  }
+}

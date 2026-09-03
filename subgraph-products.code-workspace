@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "subgraph-products"
+		},
+		{
+			"path": "subgraph-reviews"
+		},
+		{
+			"path": "subgraph-users"
+		}
+	],
+	"settings": {}
+}

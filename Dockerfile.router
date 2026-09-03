@@ -1,0 +1,23 @@
+FROM ghcr.io/apollographql/rover:0.41.0 AS composer
+
+WORKDIR /workspace
+
+COPY supergraph.compose.yaml ./supergraph.compose.yaml
+COPY subgraph-products/schema.graphql ./subgraph-products/schema.graphql
+COPY subgraph-users/schema.graphql ./subgraph-users/schema.graphql
+COPY subgraph-reviews/schema.graphql ./subgraph-reviews/schema.graphql
+
+RUN rover supergraph compose --config ./supergraph.compose.yaml --output ./supergraph.graphql
+
+FROM ghcr.io/apollographql/router:v2.1.3
+
+WORKDIR /dist
+
+COPY router.yaml ./router.yaml
+COPY --from=composer /workspace/supergraph.graphql ./supergraph.graphql
+
+EXPOSE 4000
+
+USER 1001
+
+CMD ["--config", "/dist/router.yaml", "--supergraph", "/dist/supergraph.graphql"]

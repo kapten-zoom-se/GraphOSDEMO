@@ -1,0 +1,39 @@
+services:
+  products:
+    build:
+      context: ./subgraph-products
+    restart: unless-stopped
+    environment:
+      PORT: 4001
+    expose:
+      - "4001"
+
+  users:
+    build:
+      context: ./subgraph-users
+    restart: unless-stopped
+    environment:
+      PORT: 4002
+    expose:
+      - "4002"
+
+  reviews:
+    build:
+      context: ./subgraph-reviews
+    restart: unless-stopped
+    environment:
+      PORT: 4003
+    expose:
+      - "4003"
+
+  router:
+    build:
+      context: .
+      dockerfile: Dockerfile.router
+    restart: unless-stopped
+    depends_on:
+      - products
+      - users
+      - reviews
+    ports:
+      - "4000:4000"
