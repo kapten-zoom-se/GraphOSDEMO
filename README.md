@@ -112,8 +112,9 @@ This repo now includes a simple single-host deployment for small demos:
 On the Droplet:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/kapten-zoom-se/GraphOSDEMO/
 cd graphos-demo
+export APOLLO_ELV2_LICENSE=accept
 docker compose up -d --build
 ```
 

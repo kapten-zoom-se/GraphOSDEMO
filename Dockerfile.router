@@ -7,7 +7,7 @@ COPY subgraph-products/schema.graphql ./subgraph-products/schema.graphql
 COPY subgraph-users/schema.graphql ./subgraph-users/schema.graphql
 COPY subgraph-reviews/schema.graphql ./subgraph-reviews/schema.graphql
 
-RUN rover supergraph compose --config ./supergraph.compose.yaml --output ./supergraph.graphql
+RUN rover supergraph compose --elv2-license accept --config ./supergraph.compose.yaml --output ./supergraph.graphql
 
 FROM ghcr.io/apollographql/router:v2.1.3
 
